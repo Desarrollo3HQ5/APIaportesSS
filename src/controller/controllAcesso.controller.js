@@ -85,7 +85,7 @@ ControlAccesoController.getCertificado = (req, res) => {
             var date2 = new Date(tDate2);
             var unixTimeStamp2 = Math. floor(date2. getTime() / 1000);
             const data = {
-             "certificadoAportes":req.body
+             "certificadoAportes":[req.body]
             }
             // {
             //     "certificadoAportes":{
