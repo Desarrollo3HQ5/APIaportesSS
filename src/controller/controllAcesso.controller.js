@@ -84,19 +84,17 @@ ControlAccesoController.getCertificado = (req, res) => {
             var unixTimeStamp1 = Math. floor(date. getTime() / 1000);
             var date2 = new Date(tDate2);
             var unixTimeStamp2 = Math. floor(date2. getTime() / 1000);
-            const data = {
-             "certificadoAportes":[req.body]
+            const data = 
+            {
+                "certificadoAportes":{
+                    "TipoIdentificacionEmpleado":"CC",
+                    "NumeroIdentificacionEmpleado":"1095805547",
+                    "PeriodoDesde": "1672588897",
+                    "PeriodoHasta": "1675094497",
+                    "FormatoReporte": "1",
+                    "LlaveApertura": "eb50-43ba-96f2f2"
+                }
             }
-            // {
-            //     "certificadoAportes":{
-            //         "TipoIdentificacionEmpleado":req.body.TipoDoc,
-            //         "NumeroIdentificacionEmpleado":req.body.Doc,
-            //         "PeriodoDesde": unixTimeStamp1,
-            //         "PeriodoHasta": unixTimeStamp2,
-            //         "FormatoReporte": 1,
-            //         "LlaveApertura": "eb50-43ba-96f2f2"
-            //     }
-            // }
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
