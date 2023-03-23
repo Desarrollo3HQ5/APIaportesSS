@@ -25,10 +25,8 @@ ControlAccesoController.getEmployee = (req, res) => {
                 // console.log(decodificado);
             })
         }
-
     )
 }
-
 ControlAccesoController.getEmployees = (req, res) => {
     //TOKEN
     AccesToken().then(
