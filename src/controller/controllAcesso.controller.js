@@ -101,8 +101,6 @@ ControlAccesoController.getCertificado = (req, res) => {
                 "Token":response.data
             // 'Content-Type': 'application/x-www-form-urlencoded',
             }
-            console.log(headers);
-            console.log(data)
             postAPI(url,data,headers).then( (response) => {
                 console.log(response)
                 res.json(response)
