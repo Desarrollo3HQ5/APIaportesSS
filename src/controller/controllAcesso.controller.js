@@ -78,21 +78,15 @@ ControlAccesoController.getCertificado = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://aplicacionespruebas.aportesenlinea.com/Reportes.ServicioWeb/Reportes.svc/CertificadoAportes";
-            var tDate = req.body.Fechainicial
-            var tDate2 = req.body.FechaFinal
-            var date = new Date(tDate);
-            var unixTimeStamp1 = Math. floor(date. getTime() / 1000);
-            var date2 = new Date(tDate2);
-            var unixTimeStamp2 = Math. floor(date2. getTime() / 1000);
             const data = 
             {
                 "certificadoAportes":{
-                    "TipoIdentificacionEmpleado":"CC",
-                    "NumeroIdentificacionEmpleado":"1095805547",
-                    "PeriodoDesde": "1672588897",
-                    "PeriodoHasta": "1675094497",
-                    "FormatoReporte": "1",
-                    "LlaveApertura": "eb50-43ba-96f2f2"
+                    "TipoIdentificacionEmpleado":req.body.TipoIdentificacionEmpleado,
+                    "NumeroIdentificacionEmpleado":req.body.NumeroIdentificacionEmpleado,
+                    "PeriodoDesde": req.body.PeriodoDesde,
+                    "PeriodoHasta": req.body.PeriodoHasta,
+                    "FormatoReporte": req.body.FormatoReporte,
+                    "LlaveApertura": req.body.LlaveApertura
                 }
             }
             const headers= {
