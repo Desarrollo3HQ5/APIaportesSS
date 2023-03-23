@@ -4,6 +4,7 @@ const ControlAccesoController = {}
 
 ControlAccesoController.getEmployee = (req, res) => {
     //TOKEN
+    console.log("entradno")
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Transversales.Servicios.Fachada/api/Persona/ConsultarPersonaEnBaseDatosReferencia";
@@ -14,7 +15,9 @@ ControlAccesoController.getEmployee = (req, res) => {
                 "Token":response.data
             // 'Content-Type': 'application/x-www-form-urlencoded',
             }
+            console.log(headers)
             postAPI(url,data,headers).then( (response) => {
+
                 res.json(response)
                 //Usage example:
                 // let decodificado = atob(response.Reporte);
