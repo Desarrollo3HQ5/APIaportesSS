@@ -104,6 +104,7 @@ ControlAccesoController.getCertificado = (req, res) => {
             console.log(headers);
             console.log(data)
             postAPI(url,data,headers).then( (response) => {
+                console.log(response)
                 res.json(response)
                 //Usage example:
                 // let decodificado = atob(response.Reporte);
