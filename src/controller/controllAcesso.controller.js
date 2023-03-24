@@ -154,7 +154,7 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
     //TOKEN
     AccesToken().then(
         (response)=>{
-            const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/recepcionSolicitudPlanillaIntegradahttps://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/consultarEstadoSolicitud";
+            const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/consultarEstadoSolicitud";
             const data= {"data":[{
                 "IDTransaccion":req.body.IDTransaccion
                 }]
