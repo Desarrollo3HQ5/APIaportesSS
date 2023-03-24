@@ -8,10 +8,12 @@ ControlAccesoController.getEmployee = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Transversales.Servicios.Fachada/api/Persona/ConsultarPersonaEnBaseDatosReferencia";
-            const data = [{
+            const data = {
+                "data":[{
                 "TipoDocumento":req.body.TipoDocumento,
                 "NumeroDocumento":req.body.NumeroDocumento
             }]
+        }
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
@@ -117,17 +119,19 @@ ControlAccesoController.postValidacionCargue = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/recepcionSolicitudPlanillaIntegrada";
-            const data= [{
-                "IndicadorLiquidacion": req.body.IndicadorLiquidacion,
-                "TipoIDAportante": req.body.TipoIDAportante,
-                "NumeroIDAportante": req.body.NumeroIDAportante,
-                "CodigoSucursalPrincipal": req.body.CodigoSucursalPrincipal,
-                "TipoRegistro": req.body.TipoRegistro,
-                "TipoArchivo": req.body.TipoArchivo,
-                "Archivo": req.body.Archivo,
-                "EstructuraArchivo": req.body.EstructuraArchivo,
-                "IndicadorNotificacion": req.body.IndicadorNotificacion
-                }]
+            const data={
+                "data":[{
+                    "IndicadorLiquidacion": req.body.IndicadorLiquidacion,
+                    "TipoIDAportante": req.body.TipoIDAportante,
+                    "NumeroIDAportante": req.body.NumeroIDAportante,
+                    "CodigoSucursalPrincipal": req.body.CodigoSucursalPrincipal,
+                    "TipoRegistro": req.body.TipoRegistro,
+                    "TipoArchivo": req.body.TipoArchivo,
+                    "Archivo": req.body.Archivo,
+                    "EstructuraArchivo": req.body.EstructuraArchivo,
+                    "IndicadorNotificacion": req.body.IndicadorNotificacion
+                    }]
+            } 
                 
             const headers= {
                 "Content-Type":"application/json",
@@ -151,10 +155,10 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/recepcionSolicitudPlanillaIntegradahttps://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/consultarEstadoSolicitud";
-            const data= [{
+            const data= {"data":[{
                 "IDTransaccion":req.body.IDTransaccion
                 }]
-                
+            }
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
