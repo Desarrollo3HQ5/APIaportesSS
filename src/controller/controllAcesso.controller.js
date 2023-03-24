@@ -8,7 +8,10 @@ ControlAccesoController.getEmployee = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Transversales.Servicios.Fachada/api/Persona/ConsultarPersonaEnBaseDatosReferencia";
-            const data= req.body
+            const data = [{
+                "TipoDocumento":req.body.TipoDocumento,
+                "NumeroDocumento":req.body.NumeroDocumento
+            }]
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
@@ -113,7 +116,18 @@ ControlAccesoController.postValidacionCargue = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/recepcionSolicitudPlanillaIntegrada";
-            const data= req.body
+            const data= [{
+                "IndicadorLiquidacion": req.body.IndicadorLiquidacion,
+                "TipoIDAportante": req.body.TipoIDAportante,
+                "NumeroIDAportante": req.body.NumeroIDAportante,
+                "CodigoSucursalPrincipal": req.body.CodigoSucursalPrincipal,
+                "TipoRegistro": req.body.TipoRegistro,
+                "TipoArchivo": req.body.TipoArchivo,
+                "Archivo": req.body.Archivo,
+                "EstructuraArchivo": req.body.EstructuraArchivo,
+                "IndicadorNotificacion": req.body.IndicadorNotificacion
+                }]
+                
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
@@ -136,7 +150,10 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/recepcionSolicitudPlanillaIntegradahttps://marketplacepruebas.aportesenlinea.com/Fanaia.Servicios.Fachada/api/TransmisorPlanillaIntegrada/consultarEstadoSolicitud";
-            const data= req.body
+            const data= [{
+                "IDTransaccion":req.body.IDTransaccion
+                }]
+                
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
