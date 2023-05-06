@@ -202,7 +202,7 @@ ControlAccesoController.postComprobante = (req, res)=>{
     // const process = spawn('python',[join(__dirname,'../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
     const process = spawn('python',[
         "-u",
-        path.join(__dirname, '../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
+        join(__dirname, '../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
     process.stderr.on("data",(data)=>{
         console.error('stderr:',data.toString());
     })
