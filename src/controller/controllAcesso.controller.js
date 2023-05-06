@@ -2,6 +2,11 @@ import { AccesToken,postAPI} from "../config/Urls.js";
 
 const ControlAccesoController = {}
 
+// const spawn = require("child_process").spawn;
+import { spawn } from "child_process";
+// const Spawn = spawn();
+
+
 ControlAccesoController.getEmployee = (req, res) => {
     //TOKEN
     console.log("entradno")
@@ -38,7 +43,10 @@ ControlAccesoController.getEmployees = (req, res) => {
     AccesToken().then(
         (response)=>{
             const url = "https://marketplacepruebas.aportesenlinea.com/Transversales.Servicios.Fachada/api/Persona/ConsultarPersonaEnBaseDatosReferenciaMasivo";
-            const data= req.body
+            const data = {
+                "data":req.body
+        }
+        console.log(data)
             const headers= {
                 "Content-Type":"application/json",
                 "Anon":"Mareigua.Fanaia",
@@ -177,5 +185,33 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
         }
 
     )
+}
+
+//Servicio para comprobantes contables
+ControlAccesoController.postComprobante = (req, res)=>{
+    let data_1 = req.body.Data.tipo_periodo;
+    let data_2 = req.body.Data.mes;
+    let data_3 = req.body.Data.anio;
+    let data_4 = req.body.Data.temporal;
+
+    console.log(data_1)
+    console.log(data_2)
+    console.log(data_3)
+    console.log(data_4)
+    const process = spawn('python',["./src/python/Comprobantes.py",data_1,data_2,data_3,data_4]);
+    process.stderr.on("data",(data)=>{
+        console.error('stderr:',data.toString());
+    })
+    process.stdout.on('data', (data) => {
+        console.log(data.toString())
+        res.json({process: '0', result: data.toString()})
+        // Nombre_txt = data.toString();
+        // Nombre_txt = Nombre_txt.split("\r\n").join("");
+        // Nombre_txt = Nombre_txt.split("\n").join("");
+        // if(Nombre_txt == "No existe registro"){res.json({process: '0', result: 'No hay Reporte TXTSS'});}
+        // else{process.stdout.on('end', function(data) {res.json({process: '1', result: Nombre_txt});})}
+    });
+    console.log("Realziado")
+
 }
 export {ControlAccesoController}

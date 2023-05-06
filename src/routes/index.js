@@ -19,4 +19,7 @@ router.post("/querycertificate/", ControlAccesoController.getCertificado);
 //Validacion y cargue
 router.post("/validacionCargue/", ControlAccesoController.postValidacionCargue);
 router.post("/queryResultvalidacionCargue/", ControlAccesoController.getResultValidacionCargue);
+
+//Servicio para comprobantes contables
+router.post("/comprobantesContablesNomina/", ControlAccesoController.postComprobante);
 export default router;
