@@ -1,5 +1,5 @@
 import { AccesToken,postAPI} from "../config/Urls.js";
-
+import {dirname, join} from "path"
 const ControlAccesoController = {}
 
 // const spawn = require("child_process").spawn;
@@ -198,7 +198,7 @@ ControlAccesoController.postComprobante = (req, res)=>{
     console.log(data_2)
     console.log(data_3)
     console.log(data_4)
-    const process = spawn('python',["./src/python/Comprobantes.py",data_1,data_2,data_3,data_4], {
+    const process = spawn('python',[join(__dirname,'/src/python/Comprobantes.py'),data_1,data_2,data_3,data_4], {
         env: {
             NODE_ENV: 'production',
             PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",

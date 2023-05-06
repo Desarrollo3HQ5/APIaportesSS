@@ -3,6 +3,7 @@ import {dirname, join} from "path"
 import { fileURLToPath } from "url"
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
+
 dotenv.config()
 //Enrutador
 import indexRoutes from './src/routes/index.js'
