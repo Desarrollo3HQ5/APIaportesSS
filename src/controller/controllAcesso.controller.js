@@ -5,7 +5,7 @@ const ControlAccesoController = {}
 // const spawn = require("child_process").spawn;
 import { spawn } from "child_process";
 // const Spawn = spawn();
-
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 ControlAccesoController.getEmployee = (req, res) => {
     //TOKEN
