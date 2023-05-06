@@ -198,7 +198,12 @@ ControlAccesoController.postComprobante = (req, res)=>{
     console.log(data_2)
     console.log(data_3)
     console.log(data_4)
-    const process = spawn('python',["./src/python/Comprobantes.py",data_1,data_2,data_3,data_4]);
+    const process = spawn('python',["./src/python/Comprobantes.py",data_1,data_2,data_3,data_4], {
+        env: {
+            NODE_ENV: 'production',
+            PATH: process.env.PATH,
+        },
+    });
     process.stderr.on("data",(data)=>{
         console.error('stderr:',data.toString());
     })
