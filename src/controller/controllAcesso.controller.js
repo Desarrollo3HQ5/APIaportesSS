@@ -189,10 +189,10 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
 
 //Servicio para comprobantes contables
 ControlAccesoController.postComprobante = (req, res)=>{
-    let data_1 = req.body.Data.tipo_periodo;
-    let data_2 = req.body.Data.mes;
-    let data_3 = req.body.Data.anio;
-    let data_4 = req.body.Data.temporal;
+    let data_1 = req.body.tipo_periodo;
+    let data_2 = req.body.mes;
+    let data_3 = req.body.anio;
+    let data_4 = req.body.temporal;
 
     console.log(data_1)
     console.log(data_2)
