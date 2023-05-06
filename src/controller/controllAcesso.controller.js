@@ -1,5 +1,6 @@
 import { AccesToken,postAPI} from "../config/Urls.js";
 import {dirname, join} from "path"
+import { fileURLToPath } from "url"
 const ControlAccesoController = {}
 
 // const spawn = require("child_process").spawn;
