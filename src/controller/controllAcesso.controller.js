@@ -201,7 +201,7 @@ ControlAccesoController.postComprobante = (req, res)=>{
     const process = spawn('python',["./src/python/Comprobantes.py",data_1,data_2,data_3,data_4], {
         env: {
             NODE_ENV: 'production',
-            PATH: process.env.PATH,
+            PATH: process.env.PATH || "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
         },
     });
     process.stderr.on("data",(data)=>{
