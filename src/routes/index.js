@@ -22,4 +22,6 @@ router.post("/queryResultvalidacionCargue/", ControlAccesoController.getResultVa
 
 //Servicio para comprobantes contables
 router.post("/comprobantesContablesNomina/", ControlAccesoController.postComprobante);
+//API sin front externo, directo zoho
+router.post('/api/v1/prenominaReporte', ControlAccesoController.reportePrenomina)
 export default router;
