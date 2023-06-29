@@ -197,9 +197,9 @@ ControlAccesoController.postComprobante = (req, res)=>{
     let data_4 = req.body.temporal;
     console.log(req.body)
     // const process = spawn('python',[join(__dirname,'../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
-    const process = spawn('python',[
-        "-u",
-        join(__dirname, '../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
+    // const process = spawn('python',["-u",join(__dirname, '../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
+    const process = spawn('python',['./src/python/Comprobantes.py',data_1,data_2,data_3,data_4]);
+    
     process.stderr.on("data",(data)=>{
         console.error('stderr:',data.toString());
     })
