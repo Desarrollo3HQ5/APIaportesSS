@@ -44,9 +44,8 @@ def procesar():
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
     header = {"Authorization":"Zoho-oauthtoken "+Token_ , "Access-Control-Allow-Origin": "*"} 
-    # r = requests.get(url_,headers=header)
-    r = grequests.get(url_,headers=header)
-    
+    r = requests.get(url_,headers=header)
+    # r = grequests.get(url_,headers=header)
     resp = r.json()
     res = resp['data']
     Id_ = res[0]['ID']
@@ -238,7 +237,7 @@ def IngresarComprobantescontables(DataFrame):
         r = requests.post(url_,data=Datos_,headers=header)
         print(r.json())
             
-def AccesTokenBloqueo(bloqueo):
+async def AccesTokenBloqueo(bloqueo):
     global tiempo_
     global token
     # VALIDAR CON LA LECTURA DEL DOCUMENTO TXT
@@ -272,7 +271,7 @@ def AccesTokenBloqueo(bloqueo):
                 token = posts['access_token']
     return token
             
-def AccesToken():
+async def AccesToken():
     global tiempo_
     global token
     # VALIDAR CON LA LECTURA DEL DOCUMENTO TXT
