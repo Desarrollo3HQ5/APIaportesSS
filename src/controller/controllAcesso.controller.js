@@ -197,15 +197,16 @@ ControlAccesoController.postComprobante = (req, res)=>{
     let data_3 = req.body.anio;
     let data_4 = req.body.temporal;
     console.log(req.body)
-    // const process = spawn('python',[join(__dirname,'../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
+    const process = spawn('python',[join(__dirname,'../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
     // const process = spawn('python',["-u",join(__dirname, '../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
-    const process = spawn('python',['/home/desarrollo3/APIaportesSS/src/python/Comprobantes.py',data_1,data_2,data_3,data_4],{shell: true});
+    // const process = spawn('python',['/home/desarrollo3/APIaportesSS/src/python/Comprobantes.py',data_1,data_2,data_3,data_4],{shell: true});
     
     process.stderr.on("data",(data)=>{
         console.error('stderr:',data.toString());
     })
     process.stdout.on('data', (data) => {
         respuestaPython_ = data.toString()
+        console.log(respuestaPython_)
         if ( respuestaPython_ == "No existe registro"){
             return res.json({process: '0',result: 'No hay registros'});
         }

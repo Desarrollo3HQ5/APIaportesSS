@@ -39,12 +39,12 @@ def procesar():
     tiempo_ = 0
     token = ""
     Token_ = AccesToken()
+    print(Token_)
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
     header = {"Authorization":"Zoho-oauthtoken "+Token_ , "Access-Control-Allow-Origin": "*"} 
     r = requests.get(url_,headers=header)
     resp = r.json()
-    print(resp)
     res = resp['data']
     Id_ = res[0]['ID']
     Consecutivo_ = res[0]['Consecutivo_nomina']

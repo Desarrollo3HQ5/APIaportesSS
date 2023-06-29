@@ -2,7 +2,7 @@ POST http://localhost:8000/comprobantesContablesNomina/ HTTP/1.1
 content-type: application/json
 
 {
-    "tipo_periodo":"14",
+    "tipo_periodo":"15",
     "mes":"6",
     "anio":"2023",
     "temporal":"HQ5 S.A.S"   
