@@ -2,7 +2,8 @@ import { AccesToken,postAPI} from "../config/Urls.js";
 import {dirname, join} from "path"
 import { fileURLToPath } from "url"
 const ControlAccesoController = {}
-
+import * as dotenv from "dotenv";
+dotenv.config()
 // const spawn = require("child_process").spawn;
 import { spawn } from "child_process";
 // const Spawn = spawn();
