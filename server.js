@@ -23,5 +23,5 @@ app.use(indexRoutes)
 app.use(express.static(join(__dirname,'public')))
 
 
-const PORT = 8000;
-app.listen(PORT,() =>console.log("Servidor corriendio en puerto: " + PORT) )
+const PORT = process.env.PORT;
+app.listen(PORT,() =>console.log("Servidor corriendio en puerto: " + PORT + " prueba en " + process.env.AMBIENTE) )
