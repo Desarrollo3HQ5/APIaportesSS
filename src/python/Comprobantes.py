@@ -40,8 +40,7 @@ def procesar():
     
     tiempo_ = 0
     token = ""
-    Token_ = AccesToken()
-    asyncio.run(Token_)
+    Token_ = await AccesToken()
     print(Token_)
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
