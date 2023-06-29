@@ -271,7 +271,7 @@ def AccesTokenBloqueo(bloqueo):
                 token = posts['access_token']
     return token
             
-def AccesToken():
+async def AccesToken():
     global tiempo_
     global token
     # VALIDAR CON LA LECTURA DEL DOCUMENTO TXT
