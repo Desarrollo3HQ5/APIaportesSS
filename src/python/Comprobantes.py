@@ -17,6 +17,7 @@ from xlsxwriter import Workbook
 import threading
 # API
 import requests
+import grequests
 import json
 #Tiempo
 import time
@@ -43,7 +44,9 @@ def procesar():
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
     header = {"Authorization":"Zoho-oauthtoken "+Token_ , "Access-Control-Allow-Origin": "*"} 
-    r = requests.get(url_,headers=header)
+    # r = requests.get(url_,headers=header)
+    r = grequests.get(url_,headers=header)
+    
     resp = r.json()
     res = resp['data']
     Id_ = res[0]['ID']
@@ -283,7 +286,9 @@ def AccesToken():
         url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
         cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
         auth_data = {"answer": "42" }
-        resp = requests.post(url, data=auth_data,headers=cabeceras)
+        # resp = requests.post(url, data=auth_data,headers=cabeceras)
+        resp = grequests.post(url, data=auth_data,headers=cabeceras)
+        
         posts = resp.json()
         # print("Respuesta de token")
         # print(posts)
