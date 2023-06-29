@@ -16,7 +16,9 @@ from xlsxwriter import Workbook
 #Hilos
 import threading
 # API
-import requests
+# import requests
+import requests_async as requests
+
 import grequests
 import asyncio
 import json
@@ -40,7 +42,7 @@ def procesar():
     
     tiempo_ = 0
     token = ""
-    Token_ = asyncio.run(AccesToken())
+    Token_ = AccesToken()
     print(Token_)
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
@@ -196,7 +198,7 @@ async def AccesTokenBloqueo(bloqueo):
                 token = posts['access_token']
     return token
             
-async def AccesToken():
+def AccesToken():
     global tiempo_
     global token
     # VALIDAR CON LA LECTURA DEL DOCUMENTO TXT
@@ -210,7 +212,7 @@ async def AccesToken():
         url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
         cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
         auth_data = {"answer": "42" }
-        resp = requests.post(url, data=auth_data,headers=cabeceras)
+        resp = await requests.post(url, data=auth_data,headers=cabeceras)
         # resp await = grequests.post(url, data=auth_data,headers=cabeceras)
         
         posts = resp.json()
