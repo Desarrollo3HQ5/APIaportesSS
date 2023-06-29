@@ -3,8 +3,11 @@ import fetch from "node-fetch"
 async function AccesToken() {
     //Variables necesarias
     const url = "https://marketplacepruebas.aportesenlinea.com/Transversales.Servicios.Fachada/api/ControlAcceso/Autenticar";
-    const NombreUsuario = "901023218PruebasNOM";
-    const Password = "n3NR61M_Ngs7zd";
+    // const url = "https://aportesenlinea.com/Transversales.Servicios.Fachada/api/ControlAcceso/Autenticar";
+    // const NombreUsuario = "901023218PruebasNOM";
+    // const Password = "n3NR61M_Ngs7zd";
+    const NombreUsuario = "1013677246";
+    const Password = "yw5cMU7Q7ku5=C";
     const Aplicacion=  "E2271FA7-0FCA-4293-BF6D-53414286FDB0";
     const data= {
         "data":[{

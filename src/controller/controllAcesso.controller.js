@@ -6,6 +6,7 @@ const ControlAccesoController = {}
 // const spawn = require("child_process").spawn;
 import { spawn } from "child_process";
 // const Spawn = spawn();
+var respuestaPython_ = "";
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 ControlAccesoController.getEmployee = (req, res) => {
@@ -194,11 +195,7 @@ ControlAccesoController.postComprobante = (req, res)=>{
     let data_2 = req.body.mes;
     let data_3 = req.body.anio;
     let data_4 = req.body.temporal;
-
-    console.log(data_1)
-    console.log(data_2)
-    console.log(data_3)
-    console.log(data_4)
+    console.log(req.body)
     // const process = spawn('python',[join(__dirname,'../python/Comprobantes.py'),data_1,data_2,data_3,data_4]);
     const process = spawn('python',[
         "-u",
@@ -207,15 +204,20 @@ ControlAccesoController.postComprobante = (req, res)=>{
         console.error('stderr:',data.toString());
     })
     process.stdout.on('data', (data) => {
-        console.log(data.toString())
-        res.json({process: '0', result: data.toString()})
+        respuestaPython_ = data.toString()
+        if ( respuestaPython_ == "No existe registro"){
+            return res.json({process: '0',result: 'No hay registros'});
+        }
+        else{
+            return res.json({process: '0', result: respuestaPython_})
+        }
+        
         // Nombre_txt = data.toString();
         // Nombre_txt = Nombre_txt.split("\r\n").join("");
         // Nombre_txt = Nombre_txt.split("\n").join("");
         // if(Nombre_txt == "No existe registro"){res.json({process: '0', result: 'No hay Reporte TXTSS'});}
         // else{process.stdout.on('end', function(data) {res.json({process: '1', result: Nombre_txt});})}
     });
-    console.log("Realziado")
 
 }
 export {ControlAccesoController}

@@ -2,10 +2,8 @@ POST http://localhost:8000/comprobantesContablesNomina/ HTTP/1.1
 content-type: application/json
 
 {
-    "Data":{
-        "tipo_periodo": "1",
-        "mes": "2",
-        "anio": "2023",
-        "temporal": "TEMPOENLACE S.A.S"
-    }
-} 
+    "tipo_periodo":"14",
+    "mes":"6",
+    "anio":"2023",
+    "temporal":"HQ5 S.A.S"   
+}
