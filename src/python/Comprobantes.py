@@ -44,6 +44,7 @@ def procesar():
     header = {"Authorization":"Zoho-oauthtoken "+Token_ , "Access-Control-Allow-Origin": "*"} 
     r = requests.get(url_,headers=header)
     resp = r.json()
+    print(resp)
     res = resp['data']
     Id_ = res[0]['ID']
     Consecutivo_ = res[0]['Consecutivo_nomina']
