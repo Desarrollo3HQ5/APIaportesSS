@@ -191,8 +191,8 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
 }
 //Funcion para generar el archivo de prenomina
 ControlAccesoController.reportePrenomina = (req, res) => {
-    let data_1 = req.body.Data.periodo;
-    let data_2 = req.body.Data.idregistro;
+    let data_1 = req.body.periodo;
+    let data_2 = req.body.idregistro;
 
     const process = spawn('python',[join(__dirname,'../python/reportePrenomina.py'),data_1,data_2]);
     process.stderr.on("data",(data)=>{
