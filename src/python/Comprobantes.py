@@ -39,7 +39,6 @@ def procesar():
     # temporal_ = "HQ5 S.A.S"
     # temporal_ = "TEMPOENLACE S.A.S"
     temporal = temporal_.replace(" ","%20")
-    
     tiempo_ = 0
     token = ""
     Token_ = AccesToken()
