@@ -18,6 +18,7 @@ import threading
 # API
 import requests
 import grequests
+import asyncio
 import json
 #Tiempo
 import time
@@ -40,6 +41,7 @@ def procesar():
     tiempo_ = 0
     token = ""
     Token_ = AccesToken()
+    asyncio.run(Token_)
     print(Token_)
     # Realizar consulta
     url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/report/Consecutivo_cuentas_contables_Report?Temporal="+temporal
@@ -160,84 +162,8 @@ def IngresararchivoComprobante(IDPeriodo_,longitud,bloqueo):
     if(r.status_code == 200):
         time.sleep(5)
         os.remove('Comprobante' + str(IDPeriodo_)+ '_' + str(Consecutivo_) +'.xlsx')
-    
-    
-def IngresarComprobantescontables(DataFrame):
-    DataFrame['Identificación tercero']=""
-    DataFrame.fillna(0, inplace=True)
-    DataFrame.columns = ['Tipo_de_comprobante', 'Consecutivo_comprobante', 'Fecha_de_elaboraci_n1', 'Sigla_moneda', 'Tasa_de_cambio', 'C_digo_cuenta_contable_text','Identificaci_n_tercero',
-                         'Sucursal','C_digo_producto','C_digo_de_bodega','Acci_n','Cantidad_producto','Prefijo','Consecutivo','No_cuota','Fecha_vencimiento',
-                         'C_digo_impuesto','C_digo_grupo_activo_fijo','C_digo_activo_fijo','Descripci_n','C_digo_centro_subcentro_de_costos1','D_bito','Cr_dito',
-                         'Observaciones','Base_gravable_libro_compras_ventas','Base_exenta_libro_compras_ventas','Mes_de_cierre','Periodo','Nomina']
-    DataFrame["C_digo_cuenta_contable_text"] = DataFrame["C_digo_cuenta_contable_text"].astype(int).astype(str)
-    # Realizar consulta
-     # Llamar API de zoho para actualizar datos del consecutivo
-    # refresh_ = '1000.361a90e9a2b60154103970f01fb42e33.b9220687af76e357bb1e1e4aefc95d95'
-    # url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
-    # cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
-    # auth_data = {"answer": "42" }
-    # resp = requests.post(url, data=auth_data,headers=cabeceras)
-    # posts = resp.json()
-    Token_ = AccesToken()
-    #Seccionar el taaño de este dataframe
-    Tamaño_ = len(DataFrame.index)
-    print("Tamaño")
-    print(Tamaño_)
-    if(Tamaño_ > 200):
-        DataFrameEnviar =DataFrame[0:200]
-        js = DataFrameEnviar.to_json(orient = 'records')
-        Datos_ = {"data":
-            js
-        }
-        Datos_ = json.dumps(Datos_)
-        url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/form/Comprobantes_contables"
-        header = {"Authorization":"Zoho-oauthtoken "+Token_, "Access-Control-Allow-Origin": "*"} 
-        r = requests.post(url_,data=Datos_,headers=header)
-        print(r.json())
-    else:
-        js = DataFrame.to_json(orient = 'records')
-        Datos_ = {"data":
-            js
-        }
-        Datos_ = json.dumps(Datos_)
-        url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/form/Comprobantes_contables"
-        header = {"Authorization":"Zoho-oauthtoken "+Token_, "Access-Control-Allow-Origin": "*"} 
-        r = requests.post(url_,data=Datos_,headers=header)
-    if (Tamaño_ > 400):
-        DataFrameEnviar =DataFrame[200:400]
-        js = DataFrameEnviar.to_json(orient = 'records')
-        Datos_ = {"data":
-            js
-        }
-        Datos_ = json.dumps(Datos_)
-        url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/form/Comprobantes_contables"
-        header = {"Authorization":"Zoho-oauthtoken "+Token_, "Access-Control-Allow-Origin": "*"} 
-        r = requests.post(url_,data=Datos_,headers=header)
-        print(r.json())
-        #Segunda parte
-        DataFrameEnviar =DataFrame[400:Tamaño_+1]
-        js = DataFrameEnviar.to_json(orient = 'records')
-        Datos_ = {"data":
-            js
-        }
-        Datos_ = json.dumps(Datos_)
-        url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/form/Comprobantes_contables"
-        header = {"Authorization":"Zoho-oauthtoken "+Token_, "Access-Control-Allow-Origin": "*"} 
-        r = requests.post(url_,data=Datos_,headers=header)
-        print(r.json())
-    else:
-        DataFrameEnviar =DataFrame[200:Tamaño_+1]
-        js = DataFrameEnviar.to_json(orient = 'records')
-        Datos_ = {"data":
-            js
-        }
-        Datos_ = json.dumps(Datos_)
-        url_ = "https://creator.zoho.com/api/v2/hq5colombia/compensacionhq5/form/Comprobantes_contables"
-        header = {"Authorization":"Zoho-oauthtoken "+Token_, "Access-Control-Allow-Origin": "*"} 
-        r = requests.post(url_,data=Datos_,headers=header)
-        print(r.json())
-            
-def AccesTokenBloqueo(bloqueo):
+          
+async def AccesTokenBloqueo(bloqueo):
     global tiempo_
     global token
     # VALIDAR CON LA LECTURA DEL DOCUMENTO TXT
@@ -285,7 +211,7 @@ async def AccesToken():
         url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
         cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
         auth_data = {"answer": "42" }
-        resp = await requests.post(url, data=auth_data,headers=cabeceras)
+        resp = requests.post(url, data=auth_data,headers=cabeceras)
         # resp = grequests.post(url, data=auth_data,headers=cabeceras)
         
         posts = resp.json()
@@ -299,7 +225,7 @@ async def AccesToken():
             url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
             cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
             auth_data = {"answer": "42" }
-            resp = await requests.post(url, data=auth_data,headers=cabeceras)
+            resp = requests.post(url, data=auth_data,headers=cabeceras)
             posts = resp.json()
             token = posts['access_token']
         
