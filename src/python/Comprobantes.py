@@ -210,8 +210,8 @@ async def AccesToken():
         url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
         cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
         auth_data = {"answer": "42" }
-        resp = requests.post(url, data=auth_data,headers=cabeceras)
-        # resp = grequests.post(url, data=auth_data,headers=cabeceras)
+        resp = await requests.post(url, data=auth_data,headers=cabeceras)
+        # resp await = grequests.post(url, data=auth_data,headers=cabeceras)
         
         posts = resp.json()
         # print("Respuesta de token")
@@ -224,7 +224,7 @@ async def AccesToken():
             url = 'https://accounts.zoho.com/oauth/v2/token?refresh_token=' + refresh_ + '&client_id=1000.1X8CFKQHNVMIQYBM2LD5D630UAMMXB&client_secret=ed77d9ad812478a75cb46e11db1bbc262b8f1d49bf&grant_type=refresh_token'
             cabeceras = {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"} 
             auth_data = {"answer": "42" }
-            resp = requests.post(url, data=auth_data,headers=cabeceras)
+            resp = await requests.post(url, data=auth_data,headers=cabeceras)
             posts = resp.json()
             token = posts['access_token']
         
