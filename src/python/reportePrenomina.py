@@ -121,6 +121,8 @@ def procesar(Horizontal):
     insertarDocumento()
 def insertarDocumento():
     global IDregistro_,Empresa_
+    Empresa_ = normalize(Empresa_)
+    Empresa_ = replacement(Empresa_)
     # Llamar API de zoho para actualizar datos del consecutivo
     # Token_ = AccesToken()
     Token_ = AccesToken()
