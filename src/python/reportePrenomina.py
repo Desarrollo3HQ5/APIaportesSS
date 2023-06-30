@@ -155,7 +155,7 @@ IDregistro_ = sys.argv[2]
 URL = "https://creatorapp.zohopublic.com/hq5colombia/compensacionhq5/xls/Prenomina/WWjRAOJ2MGyyNGd5BxdvwApYGzgq5A9AQ5Q6bUmpsTQvWTMJE4qE5MyKnY4KKPXneurq8RnTZ2O698AO8N2KQ7Fa7qt4hpwSet0K?Periodo=" + Periodo
 df = pd.read_excel(URL)
 df1 = pd.DataFrame(df)
-if(df1.empty and df3.empty):
+if(df1.empty):
     print("No existe registro")
 else:
     print("Existe y se esta procesando")
