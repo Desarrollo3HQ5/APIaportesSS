@@ -65,15 +65,6 @@ def procesar(Horizontal):
     heads = Horizontal.columns.values
     FilaAgregar = {}
     Validador = False
-    
-    # for k in heads:
-    #     if(str(k).__contains__("Salario Base")):
-    #         Validador = True
-    #     if(Validador):
-    #         Horizontal[k] = Horizontal[k].astype('float')
-    #         FilaAgregar[k] = sum(Horizontal[k])
-        
-    # Horizontal = pd.concat([Horizontal,pd.DataFrame.from_records([FilaAgregar])],ignore_index=True)
 
     wb = Workbook()
     ws = wb.active
