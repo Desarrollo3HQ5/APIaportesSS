@@ -158,7 +158,7 @@ df1 = pd.DataFrame(df)
 if(df1.empty):
     print("No existe registro")
 else:
-    procesar(df1)
     print("Existe y se esta procesando")
+    procesar(df1)
     # Documento_one = procesar(df1,df3)
     # print(Documento_one)   
