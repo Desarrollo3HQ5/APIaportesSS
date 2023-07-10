@@ -55,6 +55,8 @@ def procesar(Horizontal):
     # Dataframe final para obtener los indices de las primeras columnas 
     global Empresa_
     Horizontal_heads_end = pd.DataFrame()
+    #ELIMINAR REPETIDOS
+    Horizontal.drop_duplicates(subset =['Numero de Contrato'], keep="last", inplace=True)
     Horizontal_heads_end = Horizontal
     #Nombre documento
     Empresa_ = Horizontal.iloc[0]['Empresa']
@@ -143,7 +145,7 @@ global IDregistro_,Periodo
 Periodo = sys.argv[1]
 IDregistro_ = sys.argv[2]
 # RECORRER LAS PRESTACIONES SOCIALES
-URL = "https://creatorapp.zohopublic.com/hq5colombia/compensacionhq5/xls/Prenomina/WWjRAOJ2MGyyNGd5BxdvwApYGzgq5A9AQ5Q6bUmpsTQvWTMJE4qE5MyKnY4KKPXneurq8RnTZ2O698AO8N2KQ7Fa7qt4hpwSet0K?Periodo=" + Periodo
+URL = "https://creatorapp.zohopublic.com/hq5colombia/compensacionhq5/xls/Prenomina/WWjRAOJ2MGyyNGd5BxdvwApYGzgq5A9AQ5Q6bUmpsTQvWTMJE4qE5MyKnY4KKPXneurq8RnTZ2O698AO8N2KQ7Fa7qt4hpwSet0K?Temporal_op=30&Periodo=" + Periodo
 df = pd.read_excel(URL)
 df1 = pd.DataFrame(df)
 if(df1.empty):

@@ -1,9 +1,7 @@
-POST http://localhost:8000/comprobantesContablesNomina/ HTTP/1.1
+POST http://localhost:8000/api/v1/prenominaReporte/ HTTP/1.1
 content-type: application/json
 
 {
-    "tipo_periodo":"15",
-    "mes":"6",
-    "anio":"2023",
-    "temporal":"HQ5 S.A.S"   
+    "periodo":"39954",
+    "idregistro":"3960020000080353023"
 }
