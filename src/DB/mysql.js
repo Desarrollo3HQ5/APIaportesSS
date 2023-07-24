@@ -40,7 +40,7 @@ function all(tabla){
 }
 function one(tabla,id){
     return new Promise((resolve, reject)=>{
-        conexion.query(`SELECT * FROM ${tabla} WHERE user= ${id}`,(error, result) => {
+        conexion.query(`SELECT * FROM ${tabla} WHERE token= ${id}`,(error, result) => {
             // console.log(error)
             // console.log(result)
             return error ? reject(error):resolve(result)

@@ -1,7 +1,17 @@
-POST http://localhost:8000/api/v1/prenominaReporte/ HTTP/1.1
+POST http://localhost:8000/api/v1/addMisionales/ HTTP/1.1
 content-type: application/json
 
 {
-    "periodo":"39954",
-    "idregistro":"3960020000080353023"
+    "data":[{
+        "Numero_de_documento":"10163086500",
+        "Numero_de_documento":"10163086500",
+        "ID":"0000000000000000000",
+        "Primer_Nombre":"JUAN",
+        "Primer_Apellido":"ROJASSSS",
+        "Cargo_contratado":"Desarrollador el mejor",
+        "Celular":"3134253659",
+        "Dependencia":"HQ5 S.A.S",
+        "Nomina":"374",
+        "EST":"HQ5 S.A.S"
+        }]
 }

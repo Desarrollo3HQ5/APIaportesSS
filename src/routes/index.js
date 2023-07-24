@@ -24,4 +24,6 @@ router.post("/queryResultvalidacionCargue/", ControlAccesoController.getResultVa
 router.post("/comprobantesContablesNomina/", ControlAccesoController.postComprobante);
 //API sin front externo, directo zoho
 router.post('/api/v1/prenominaReporte', ControlAccesoController.reportePrenomina)
+//API BD OV
+router.post('/api/v1/addMisionales', OVController.add_user)
 export default router;
