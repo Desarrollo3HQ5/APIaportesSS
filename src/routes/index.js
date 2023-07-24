@@ -2,7 +2,7 @@ import { Router } from "express";
 const router = Router();
 //Controladores
 import { ControlAccesoController } from '../controller/controllAcesso.controller.js'
-
+import { OVController } from '../controller/OV/OVController.js'
 router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
