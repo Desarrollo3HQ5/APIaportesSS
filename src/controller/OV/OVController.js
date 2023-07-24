@@ -10,16 +10,18 @@ OVController.add_user= async(req,res,next) => {
     // console.log(req.body)
     // const datos_ = JSON.stringify(req.body.data)
     // const datos_ = JSON.parse(req.body.data) 
-    const datos_  = req.body.data[0]
+    const datos_  = req.body.data
+    
     // const datos_  = JSON.parse(JSON.stringify(req.body.data))
     var ids_ = []
     console.log(datos_)
-    // for (let index = 0; index < datos_.length; index++) {
-    //     const element = datos_[index];
+    for (let index = 0; index < datos_.length; index++) {
+        const element = datos_[index];
+        // console.log(element.Numero_de_documento)
         
     // }
 
-    datos_.forEach(async element => {
+    // datos_.forEach(async element => {
         console.log(element)
         const Estado= 0
         if (element.Estado == "ACTIVO") {
@@ -59,7 +61,7 @@ OVController.add_user= async(req,res,next) => {
             next(err)
             // error(req,res,err,500);
         }
-    });
+    };
     sucess(req,res,ids_.toString(),200);
 
 }
