@@ -9,13 +9,10 @@ const tabla = "usuarios"
 OVController.add_user= async(req,res,next) => {
     // console.log(req.body)
     // const datos_ = JSON.stringify(req.body.data)
-    const datos_ = req.body.data
-    // const datos_ = JSON.parse(req.body)
+    const datos_ = JSON.parse(req.body) 
     var ids_ = []
-    console.log(datos_)
-    datos_.forEach(async element => {
-        console.log("------------------------------")
-        console.log(element) 
+    // console.log(datos_)
+    datos_.data.forEach(async element => {
         const Estado= 0
         if (element.Estado == "ACTIVO") {
             Estado= 1
@@ -64,7 +61,7 @@ OVController.add_user= async(req,res,next) => {
             // error(req,res,err,500);
         }
     });
-    
+    sucess(req,res,ids_.toString(),200);
 
 }
 
