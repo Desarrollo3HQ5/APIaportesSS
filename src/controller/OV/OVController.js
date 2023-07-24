@@ -23,11 +23,11 @@ OVController.add_user= async(req,res,next) => {
 
     // datos_.forEach(async element => {
         console.log(element)
-        const Estado= 0
+        var Estado= 0
         if (element.Estado == "ACTIVO") {
             Estado= 1
         }
-        const nombre = element.Primer_Apellido + ' ' + element.Primer_Nombre
+        var nombre = element.Primer_Apellido + ' ' + element.Primer_Nombre
         const data = {
             "user":element.Numero_de_documento,
             "clave":element.Numero_de_documento,
