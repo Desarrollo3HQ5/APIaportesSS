@@ -10,6 +10,7 @@ function sucess(req,res,mensaje = "",status = 200){
  }
 
  function error(req,res,mensaje = "Error interno",status = 500){
+   
     res.status(status).send(
         {
             error:true,
@@ -17,6 +18,7 @@ function sucess(req,res,mensaje = "",status = 200){
             body: mensaje
         }
     )
+
  }
 
  export {sucess,error}

@@ -13,5 +13,17 @@ content-type: application/json
         "Dependencia":"HQ5 S.A.S",
         "Nomina":"374",
         "EST":"HQ5 S.A.S"
-        }]
+    },
+    {
+        "Numero_de_documento":"101630865001",
+        "Numero_de_documento":"101630865001",
+        "ID":"00000000000000000001",
+        "Primer_Nombre":"JUAN1",
+        "Primer_Apellido":"ROJASSSS1",
+        "Cargo_contratado":"Desarrollador el mejor1",
+        "Celular":"31342536591",
+        "Dependencia":"HQ5 S.A.S1",
+        "Nomina":"3741",
+        "EST":"HQ5 S.A.S1"
+    }]
 }

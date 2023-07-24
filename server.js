@@ -3,7 +3,8 @@ import {dirname, join} from "path"
 import { fileURLToPath } from "url"
 import bodyParser from "body-parser";
 import * as dotenv from "dotenv";
-
+//Middleware
+import { errors } from "./src/config/errors.js";
 dotenv.config()
 //Enrutador
 import indexRoutes from './src/routes/index.js'
@@ -18,7 +19,7 @@ app.use(express.static("public"));
 
 //Usar el enrutador
 app.use(indexRoutes)
-
+app.use(errors)
 //usar los archivos staticos
 app.use(express.static(join(__dirname,'public')))
 
