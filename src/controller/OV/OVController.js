@@ -7,7 +7,7 @@ const tabla = "usuarios"
 
 OVController.add_user= async(req,res) => {
 
-    req.body.data.forEach(element => {
+    req.body.data.forEach(async element => {
         const Estado= 0
         if (element.Estado == "ACTIVO") {
             Estado= 1
@@ -26,17 +26,18 @@ OVController.add_user= async(req,res) => {
             "codigoReferencia":element.Nomina,
             "codigoEmpresa":element.EST,
         }
+        try{
+            // console.log(req.body.user)
+            // const items = await one(tabla,"1106308650");
+            const items = await add(tabla,data);
+            // console.log(items)
+            sucess(req,res,items,200);
+        }
+        catch(err){
+            next(err)
+        }
     });
-    try{
-        // console.log(req.body.user)
-        // const items = await one(tabla,"1106308650");
-        const items = await add(tabla,data);
-        // console.log(items)
-        sucess(req,res,items,200);
-    }
-    catch(err){
-        next(err)
-    }
+    
 
 }
 
