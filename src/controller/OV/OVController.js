@@ -10,10 +10,10 @@ OVController.add_user= async(req,res,next) => {
     // console.log(req.body)
     // const datos_ = JSON.stringify(req.body.data)
     // const datos_ = req.body.data
-    const datos_ = JSON.parse(req.body.data[0])
+    const datos_ = JSON.parse(req.body.data)
     var ids_ = []
     // console.log(datos_)
-    datos_.forEach(async element => {
+    datos_[0].forEach(async element => {
         console.log(element) 
         const Estado= 0
         if (element.Estado == "ACTIVO") {
