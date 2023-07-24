@@ -9,7 +9,7 @@ const tabla = "usuarios"
 OVController.add_user= async(req,res,next) => {
     // console.log(req.body)
     // const datos_ = JSON.stringify(req.body.data)
-    const datos_ = JSON.parse(req.body.data) 
+    const datos_ = JSON.parse(req.body.data[0]) 
     // const datos_  = req.body.data
     
     // const datos_  = JSON.parse(JSON.stringify(req.body.data))
