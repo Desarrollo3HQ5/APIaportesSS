@@ -10,15 +10,18 @@ OVController.add_user= async(req,res,next) => {
     // console.log(req.body)
     // const datos_ = JSON.stringify(req.body.data)
     // const datos_ = JSON.parse(req.body.data) 
-    const datos_  = JSON.parse(JSON.stringify(req.body.data))
+    console.log(req.body.data)
+    const datos_  = req.body.data
+    // const datos_  = JSON.parse(JSON.stringify(req.body.data))
     var ids_ = []
-    // console.log(datos_)
+    console.log(datos_)
     // for (let index = 0; index < datos_.length; index++) {
     //     const element = datos_[index];
         
     // }
 
     datos_.forEach(async element => {
+        console.log(element)
         const Estado= 0
         if (element.Estado == "ACTIVO") {
             Estado= 1
@@ -32,16 +35,7 @@ OVController.add_user= async(req,res,next) => {
             "tipo_usuario":3,
             "usuario_creacion":1,
         }
-        
-        // const usuario = await one(tabla,element.ID);
-        // console.log(usuario)
         try{
-            // console.log(data)
-            // const items = await one(tabla,"1106308650");
-            
-            // if (usuario == ) {
-                
-            // }
             const items = await add(tabla,data);
             // console.log(items)
             const idinsert =  items.insertId
