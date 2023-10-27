@@ -9,7 +9,7 @@ import { spawn } from "child_process";
 // const Spawn = spawn();
 var respuestaPython_ = "";
 const __dirname = dirname(fileURLToPath(import.meta.url))
-
+///API APORTES EN LINEA
 ControlAccesoController.getEmployee = (req, res) => {
     //TOKEN
     console.log("entradno")
@@ -189,6 +189,7 @@ ControlAccesoController.getResultValidacionCargue = (req, res) => {
 
     )
 }
+// PRENOMINA
 //Funcion para generar el archivo de prenomina
 ControlAccesoController.reportePrenomina = (req, res) => {
     let data_1 = req.body.periodo;
@@ -207,6 +208,7 @@ ControlAccesoController.reportePrenomina = (req, res) => {
         else{process.stdout.on('end', function(data) {res.json({process: '1', result: Nombre_Horizontal});})}
     });
 }
+//COMPROBANTES CONTABLES
 //Servicio para comprobantes contables
 ControlAccesoController.postComprobante = (req, res)=>{
     let data_1 = req.body.tipo_periodo;

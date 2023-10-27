@@ -11,7 +11,7 @@ function sucess(req,res,mensaje = "",status = 200){
 
  function error(req,res,mensaje = "Error interno",status = 500){
    
-    res.status(status).send(
+    res.status(status).json(
         {
             error:true,
             status:status,

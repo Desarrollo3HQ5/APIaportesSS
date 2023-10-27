@@ -1,5 +1,6 @@
 import { Router } from "express";
 const router = Router();
+
 //Controladores
 import { ControlAccesoController } from '../controller/controllAcesso.controller.js'
 import { OVController } from '../controller/OV/OVController.js'
@@ -26,4 +27,5 @@ router.post("/comprobantesContablesNomina/", ControlAccesoController.postComprob
 router.post('/api/v1/prenominaReporte', ControlAccesoController.reportePrenomina)
 //API BD OV
 router.post('/api/v1/addMisionales', OVController.add_user)
+
 export default router;

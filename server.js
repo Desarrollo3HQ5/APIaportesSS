@@ -8,6 +8,9 @@ import { errors } from "./src/config/errors.js";
 dotenv.config()
 //Enrutador
 import indexRoutes from './src/routes/index.js'
+import indexRoutes2 from './src/routes/ApiManage.js'
+//Credijob
+import indexRoutes3 from './src/routes/credijob.js'
 
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -19,6 +22,8 @@ app.use(express.static("public"));
 
 //Usar el enrutador
 app.use(indexRoutes)
+app.use(indexRoutes2)
+app.use(indexRoutes3)
 app.use(errors)
 //usar los archivos staticos
 app.use(express.static(join(__dirname,'public')))
