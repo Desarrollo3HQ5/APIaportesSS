@@ -1,11 +1,11 @@
-// const mysqlDB = {
-//     host: process.env.MYSQL_HOST || '164.92.109.128',
-//     user: process.env.MYSQL_USER || 'desarrollo',
-//     password: process.env.MYSQL_PASSWORD || "Kio09/12J",
-//     database : process.env.MYSQL_DB || 'dbdata',
-//     port:3306,
+const mysqlDB = {
+    host: process.env.MYSQL_HOST || '164.92.109.128',
+    user: process.env.MYSQL_USER || 'desarrollo',
+    password: process.env.MYSQL_PASSWORD || "Kio09/12J",
+    database : process.env.MYSQL_DB || 'dbdata',
+    port:3306,
         
-// }
+}
 const mysqlDB2 = {
     host: '201.184.98.75',
     user: 'desarrollo3',
@@ -16,5 +16,4 @@ const mysqlDB2 = {
 const jwt={
     secret:process.env.JET_SECRET || 'hq5sas'
    }
-// export {mysqlDB,mysqlDB2,jwt}
-export {mysqlDB2,jwt}
+export {mysqlDB,mysqlDB2,jwt}
