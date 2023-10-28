@@ -12,7 +12,8 @@ const dbConfig2 = {
     host:mysqlDB2.host,
     user: mysqlDB2.user,
     password : mysqlDB2.password,
-    database : mysqlDB2.database
+    database : mysqlDB2.database,
+    connectTimeout: 20000,
 }
 let conexion;
 let conexion_2;
