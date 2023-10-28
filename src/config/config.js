@@ -7,7 +7,8 @@ const mysqlDB = {
         
 }
 const mysqlDB2 = {
-    host: '201.184.98.75',
+    // host: '201.184.98.75',
+    host: 'localhost',
     user: 'desarrollo3',
     password: "5cTmZk25f",
     database : 'ApiManagePer',
