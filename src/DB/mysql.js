@@ -42,7 +42,7 @@ function conMysql2(){
     conexion_2.connect((err) =>{
         if(err){
             console.log('[db err]',err);
-            setTimeout(conMysql2,500);
+            setTimeout(conMysql2,20000);
         }else{
             console.log("DB_2 Conectada")
         }
@@ -51,7 +51,7 @@ function conMysql2(){
     conexion_2.on('error',err => {
         console.log('[db err]',err);
         if (err.code === 'PROTOCOL_CONNECTION_ERROR_LOST') {
-            conMysql();
+            conMysql2();
         }else{
             throw err;
         }
