@@ -1,5 +1,5 @@
 import { chequearToken } from "../../../autenticacion/index.js";
-import {add,all,all2,delete_,one,query,query2,one2} from "../../../DB/mysql.js" 
+import {query2,one2} from "../../../DB/mysql.js" 
 function middleware(req, res , next){
     chequearToken.confirmar(req)
     validacionPermiso(req,next)

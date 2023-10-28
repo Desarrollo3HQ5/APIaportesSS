@@ -1,5 +1,5 @@
 import { json } from "express"
-import {add,all,delete_,one,query,add2,all2,query2,update2, one2,delete2_} from "../../DB/mysql.js" 
+import {add2,all2,query2,update2, one2,delete2_} from "../../DB/mysql.js" 
 import { sucess, error } from '../../config/respuestas.js'
 //Registro de logs
 import { createLog } from "../../config/logs.js";
