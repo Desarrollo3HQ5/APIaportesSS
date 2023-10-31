@@ -16,24 +16,24 @@ const dbConfig2 = {
 let conexion;
 let conexion_2;
 function conMysql(){
-    // conexion = Mysql.createConnection(dbConfig)
-    // conexion.connect((err) =>{
-    //     if(err){
-    //         console.log('[db err]',err);
-    //         setTimeout(conMysql,200);
-    //     }else{
-    //         console.log("DB Conectada")
-    //     }
-    // } );
+    conexion = Mysql.createConnection(dbConfig)
+    conexion.connect((err) =>{
+        if(err){
+            console.log('[db err]',err);
+            setTimeout(conMysql,200);
+        }else{
+            console.log("DB Conectada")
+        }
+    } );
 
-    // conexion.on('error',err => {
-    //     console.log('[db err]',err);
-    //     if (err.code === 'PROTOCOL_CONNECTION_ERROR_LOST') {
-    //         conMysql();
-    //     }else{
-    //         throw err;
-    //     }
-    // })
+    conexion.on('error',err => {
+        console.log('[db err]',err);
+        if (err.code === 'PROTOCOL_CONNECTION_ERROR_LOST') {
+            conMysql();
+        }else{
+            throw err;
+        }
+    })
 }
 function conMysql2(){
     conexion_2 = Mysql.createConnection(dbConfig2)
